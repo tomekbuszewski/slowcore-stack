@@ -7,6 +7,6 @@ Coming soon
 ## TODO
 
 - [x] Add Storybook
-- [ ] Add plop with templates
+- [x] Add plop with templates
 - [x] Add testing examples with Vitest and Testing Library
 - [x] Add e2e testing with Playwright
