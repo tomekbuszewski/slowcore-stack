@@ -1,0 +1,13 @@
+import type { HTMLProps } from "react";
+
+interface Props extends HTMLProps<HTMLDivElement> {}
+
+function {{pascalCase name}}(props: Props) {
+    return (
+        <div
+          {...props}
+        />
+    );
+}
+
+export default {{pascalCase name}};
