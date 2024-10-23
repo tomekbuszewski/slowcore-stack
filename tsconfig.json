@@ -30,7 +30,7 @@
     "paths": {
       "@ui*": ["./app/ui/*"],
       "@/*": ["./app/*"],
-      "@env*": ["./config/env.ts"]
+      "@env": ["./config/env.ts"]
     },
     "noEmit": true
   }

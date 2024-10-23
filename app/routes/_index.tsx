@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useState } from "react";
 
-import { env } from "@env*";
+import { env } from "@env";
 
 export const meta: MetaFunction = () => {
   return [

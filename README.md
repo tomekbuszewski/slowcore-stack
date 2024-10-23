@@ -47,6 +47,7 @@ Last, but not least, you can access the variables using `@env` package. It
 checks whether this is browser or server and picks the correct implementation.
 
 **Important thing**, public types have to be prefixed with `VITE_`.
+
 **Important thing 2**, it only checks for keys, it won't verify your values.
 
 ### Testing
