@@ -7,7 +7,7 @@ const filesToCheck = [
   "app/ui/organisms/index.ts",
 ];
 
-filesToCheck.forEach((filePath) => {
+for (const filePath of filesToCheck) {
   const fullPath = path.resolve(path.dirname(""), filePath);
   if (!fs.existsSync(fullPath)) {
     fs.mkdirSync(path.dirname(fullPath), { recursive: true });
@@ -16,4 +16,4 @@ filesToCheck.forEach((filePath) => {
   } else {
     console.log(`File already exists: ${fullPath}`);
   }
-});
+}
