@@ -46,7 +46,7 @@ export default defineConfig(({ mode }) => {
     test: {
       globals: true,
       environment: "happy-dom",
-      setupFiles: ["./config/test.setup.ts"],
+      setupFiles: ["./test.setup.ts"],
     },
     plugins,
   };

@@ -8,6 +8,7 @@
     "dev": "remix vite:dev",
     "typecheck": "tsc",
     "storybook": "storybook dev -p 6006",
+    "test": "vitest",
     "~~ BUILD COMMANDS ~~": "echo '~~ BUILD COMMANDS ~~'",
     "build": "remix vite:build",
     "start": "remix-serve ./build/server/index.js",
