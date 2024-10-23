@@ -1,5 +1,7 @@
 Coming soon
 
+[_Karate_ by Karate](https://rateyourmusic.com/release/album/karate/karate/)
+
 ---
 
 ## TODO
