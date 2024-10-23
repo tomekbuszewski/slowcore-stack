@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
-
 import { useState } from "react";
+
+import { env } from "@env*";
 
 export const meta: MetaFunction = () => {
   return [
@@ -42,7 +43,7 @@ export default function Index() {
             className="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 fixed top-5 right-5 animate-in slide-in-from-right"
             role="alert"
           >
-            Hello from alert
+            The env variable is: {env.VITE_PUBLIC_ENV || "you forgot to set it"}
           </div>
         )}
 

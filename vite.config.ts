@@ -8,6 +8,7 @@ import { defineConfig } from "vite";
 
 import { vitePlugin as remix } from "@remix-run/dev";
 
+import { checkEnvVariables, generateEnvTypes } from "./utils/verify-env";
 import { plugins as basePlugins } from "./vite.base.config";
 
 declare module "@remix-run/node" {
@@ -18,9 +19,34 @@ declare module "@remix-run/node" {
 
 dotenv.config();
 
-export default defineConfig(({ mode }) => {
+let typesGenerated = false;
+
+export default defineConfig(({ mode, command }) => {
   const isTest = mode === "test";
-  const plugins: UserConfig["plugins"] = [...basePlugins];
+  const plugins: UserConfig["plugins"] = [
+    ...basePlugins,
+    {
+      name: "run-check-env",
+      async buildStart() {
+        if (!typesGenerated) {
+          try {
+            const { checkEnvVariables, generateEnvTypes } = await import(
+              "./utils/verify-env"
+            );
+            await checkEnvVariables();
+
+            if (command === "serve" && mode === "development") {
+              await generateEnvTypes();
+            }
+
+            typesGenerated = true;
+          } catch (error) {
+            console.error("Error checking environment variables", error);
+          }
+        }
+      },
+    },
+  ];
 
   if (isTest) {
     plugins.push(react());

@@ -28,7 +28,9 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./app/*"]
+      "@ui*": ["./app/ui/*"],
+      "@/*": ["./app/*"],
+      "@env*": ["./config/env.ts"]
     },
     "noEmit": true
   }
