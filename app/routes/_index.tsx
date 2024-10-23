@@ -39,7 +39,7 @@ export default function Index() {
 
         {visible && (
           <div
-            className="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
+            className="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 fixed top-5 right-5 animate-in slide-in-from-right"
             role="alert"
           >
             Hello from alert
