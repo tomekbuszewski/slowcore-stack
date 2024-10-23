@@ -1,0 +1,11 @@
+import { render, screen } from "@testing-library/react";
+import {{pascalCase name}} from "./{{pascalCase name}}";
+
+describe("UI / {{pascalCase type}}s / {{pascalCase name}}", () => {
+  it("renders properly", () => {
+    render(<{{pascalCase name}} id="test-id" name="test-name" />);
+    const {{camelCase name}}Element = screen.getByTestId("test-id");
+
+    expect({{camelCase name}}Element).toBeInTheDocument();
+  });
+});
