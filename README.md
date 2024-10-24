@@ -5,7 +5,7 @@
 - [_Karate_ by Karate](https://rateyourmusic.com/release/album/karate/karate/)
 - [_Stratosphere_ by Duster](https://rateyourmusic.com/release/album/duster/stratosphere/)
 - [_Giles Corey_ by Giles Corey](https://rateyourmusic.com/release/album/giles-corey/giles-corey/)
-- [_On Fire_ by Galaxy 500](https://rateyourmusic.com/release/album/galaxie_500/on_fire/)
+- [_On Fire_ by Galaxie 500](https://rateyourmusic.com/release/album/galaxie_500/on_fire/)
 - [_North Star Deserter_ by Vic Chesnutt](https://rateyourmusic.com/release/album/vic-chesnutt/north-star-deserter/)
 
 ---
