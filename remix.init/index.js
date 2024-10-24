@@ -96,20 +96,10 @@ async function main({ packageManager, rootDirectory }) {
     PackageJson.load(rootDirectory),
   ]);
 
-  const initInstructions = `
-- First run this stack's \`remix.init\` script and commit the changes it makes to your project.
-
-  \`\`\`sh
-  npx remix init
-  git init # if you haven't already
-  git add .
-  git commit -m "Initialize project"
-  \`\`\`
-`;
-
-  const newReadme = readme
-    .replace(new RegExp(escapeRegExp(REPLACER), "g"), APP_NAME)
-    .replace(initInstructions, "");
+  const newReadme = readme.replace(
+    new RegExp(escapeRegExp(REPLACER), "g"),
+    APP_NAME,
+  );
 
   updatePackageJson({ APP_NAME, packageJson, packageManager: pm });
 
@@ -122,7 +112,8 @@ async function main({ packageManager, rootDirectory }) {
     fs.writeFile(README_PATH, newReadme),
   ]);
   console.log(
-    `Setup is complete. You're now ready to rock and roll
+    `Setup is complete 🎸
+You can now start developing your Remix app.
 
 Start development with \`${pm.run("dev")}\`
     `.trim(),
