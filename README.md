@@ -1,4 +1,12 @@
-[_Karate_ by Karate](https://rateyourmusic.com/release/album/karate/karate/)
+# slowcore-remix-stack
+
+🎸 Some mandatory soundtracks for this project:
+
+- [_Karate_ by Karate](https://rateyourmusic.com/release/album/karate/karate/)
+- [_Stratosphere_ by Duster](https://rateyourmusic.com/release/album/duster/stratosphere/)
+- [_Giles Corey_ by Giles Corey](https://rateyourmusic.com/release/album/giles-corey/giles-corey/)
+- [_On Fire_ by Galaxy 500](https://rateyourmusic.com/release/album/galaxie_500/on_fire/)
+- [_North Star Deserter_ by Vic Chesnutt](https://rateyourmusic.com/release/album/vic-chesnutt/north-star-deserter/)
 
 ---
 
@@ -6,6 +14,39 @@ This is a simple starter for [Remix](https://remix.run/). I am using this
 framework quite often and I wanted to have a simple starter to kickstart my
 development. It's, like always, opinionated. I hope you like it, and would
 greatly appreciate any feedback and/or contributions.
+
+Please note that _this is not_ a fullstack template per se. I am using this
+as a backed-for-frontend solution, with the actual being a separate project
+(or another part of a monorepo).
+
+---
+
+## Getting started
+
+Install it with
+
+```bash
+npx create-remix@latest --template tomekbuszewski/slowcore-stack
+```
+
+or
+
+```bash
+pnpm create remix@latest --template karate-remix-template
+```
+
+or whatever package manager is currently in fashion.
+
+### The gist
+
+- Formatting with [Biome](https://biomejs.dev/);
+- Type safety with [TypeScript](https://www.typescriptlang.org/);
+- Styling with [Tailwind CSS](https://tailwindcss.com/);
+- Tests with [Vitest](https://vitest.dev/) and [Testing Library](https://testing-library.com/docs/react-testing-library/intro);
+- E2E with [Playwright](https://playwright.dev/);
+
+For more detailed description and explanation of some of my choices, 
+please read on 👇.
 
 ---
 

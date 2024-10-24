@@ -1,21 +1,19 @@
 {
-  "name": "karate-remix-template",
+  "name": "slowcore-remix-stack",
   "private": true,
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "~~ DEV COMMANDS ~~": "echo '~~ DEV COMMANDS ~~'",
     "dev": "remix vite:dev",
     "typecheck": "tsc",
     "storybook": "storybook dev -p 6006",
     "test": "vitest",
     "test:e2e": "pnpm exec playwright test",
-    "~~ PLOP COMMANDS ~~": "echo '~~ PLOP COMMANDS ~~'",
     "plop": "plop",
-    "~~ BUILD COMMANDS ~~": "echo '~~ BUILD COMMANDS ~~'",
     "build": "remix vite:build",
     "start": "remix-serve ./build/server/index.js",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "postinstall": "node ./utils/verify-env.js"
   },
   "dependencies": {
     "@remix-run/node": "^2.13.1",
