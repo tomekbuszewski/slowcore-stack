@@ -28,9 +28,11 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@ui*": ["./app/ui/*"],
+      "@ui/*": ["./app/ui/*"],
       "@/*": ["./app/*"],
-      "@env": ["./config/env.ts"]
+      "@env": ["./config/env.ts"],
+      "@features": ["./app/features/index.ts"],
+      "@mocks/*": ["./app/mocks/*"]
     },
     "noEmit": true
   }

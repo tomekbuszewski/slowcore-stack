@@ -81,6 +81,9 @@ It also generates type definitions for your environment variables in
 mechanism to check for the type, so instead of having everything as `string`,
 you'll get `number`, `boolean`, or `string`.
 
+You can either use `env` object, which provides a Record of environment variables,
+or `getEnv` function, which is typed by env keys, so you'll get code completion.
+
 The validator is bound to Vite and runs before starting the server. 
 In development mode, it will generate the types, but on production, it will not.
 
@@ -100,6 +103,11 @@ It also comes with Playwright, and is bound to the built local instance. Running
 `pnpm run test:e2e` will first build the project and start the server
 at `localhost:3000`, and then run the tests.
 
+MSW is added to the project. You can use it to mock all the external communication
+your project uses. This way you will never query your API in tests, but you will
+also don't have to catch requests and patch them. Simply define a handler
+and you're good.
+
 ### UI Generation
 
 This starter comes with a simple mechanism to generate UI components based on
@@ -117,4 +125,16 @@ checking my blogposts and/or YouTube videos:
 
 ### Feature-based architecture
 
-**Coming soon**
+Features can be generated using Plop. It will create a basic scaffolding, but
+you can extend it however you see fit. There's an example feature in the starter,
+so you can see how it works and how I envision the structure.
+
+What's important for me, is to have things in different files. Form actions,
+data loaders, types, components, all this in separate files. It's easier to
+navigate and to read it. Then, it has one "public" `index.ts` file, which
+is utilized by the main `index` in the features folder.
+
+Features can be tested with integration tests using Vitest, or with Playwright
+for E2E tests. I suggest doing the former for more complex features that
+require navigation and general user interaction. For smaller, integration
+testing is enough.

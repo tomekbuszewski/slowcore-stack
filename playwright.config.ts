@@ -1,4 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 /**
  * Read environment variables from file.
@@ -13,6 +16,9 @@ import { defineConfig, devices } from "@playwright/test";
  */
 
 const BASE_URL = "http://localhost:3000";
+const desktopConfig = {
+  viewport: { width: 1400, height: 1000 },
+};
 
 export default defineConfig({
   testDir: "./app/e2e",
@@ -39,17 +45,20 @@ export default defineConfig({
   projects: [
     {
       name: "Chromium (Chrome, Edge, Arc etc.)",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+        ...desktopConfig,
+      },
     },
 
     {
       name: "Firefox (Firefox, Floorp, etc.)",
-      use: { ...devices["Desktop Firefox"] },
+      use: { ...devices["Desktop Firefox"], ...desktopConfig },
     },
 
     {
       name: "WebKit (Safari, SigmaOS)",
-      use: { ...devices["Desktop Safari"] },
+      use: { ...devices["Desktop Safari"], ...desktopConfig },
     },
 
     // /* Test against mobile viewports. */
@@ -65,7 +74,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: "pnpm run build && pnpm run start",
+    command: "VITE_MOCKS=true pnpm run build && VITE_MOCKS=true pnpm run start",
     url: BASE_URL,
     reuseExistingServer: !process.env.CI,
   },

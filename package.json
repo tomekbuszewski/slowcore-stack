@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "remix vite:dev",
+    "dev:mocks": "VITE_MOCKS=true remix vite:dev",
     "typecheck": "tsc",
     "storybook": "storybook dev -p 6006",
     "test": "vitest",
@@ -13,7 +14,8 @@
     "build": "remix vite:build",
     "start": "remix-serve ./build/server/index.js",
     "build-storybook": "storybook build",
-    "postinstall": "node ./utils/verify-env.js"
+    "postinstall": "node ./utils/verify-env.js",
+    "postplop": "biome format --write ./app"
   },
   "dependencies": {
     "@remix-run/node": "^2.13.1",
@@ -28,6 +30,7 @@
     "@biomejs/biome": "^1.9.4",
     "@playwright/test": "^1.48.1",
     "@remix-run/dev": "^2.13.1",
+    "@remix-run/testing": "^2.13.1",
     "@storybook/addon-essentials": "^8.3.5",
     "@storybook/addon-interactions": "^8.3.5",
     "@storybook/addon-links": "^8.3.5",
@@ -47,6 +50,7 @@
     "dotenv": "^16.4.5",
     "eslint-plugin-storybook": "^0.10.1",
     "happy-dom": "^15.7.4",
+    "msw": "^2.5.2",
     "plop": "^4.0.1",
     "postcss": "^8.4.38",
     "remix-development-tools": "^4.7.3",
@@ -69,5 +73,8 @@
     "name": "Tomasz Buszewski",
     "email": "tomasz@buszewski.com"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "msw": {
+    "workerDirectory": ["public"]
+  }
 }

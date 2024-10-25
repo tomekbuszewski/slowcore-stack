@@ -7,10 +7,16 @@
 import type { EntryContext } from "@remix-run/node";
 
 import { PassThrough } from "node:stream";
+import { getEnv } from "@env";
+import { nodeServer } from "@mocks/server";
 import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
+
+if (getEnv("VITE_MOCKS")) {
+  nodeServer.listen();
+}
 
 const ABORT_DELAY = 5_000;
 
