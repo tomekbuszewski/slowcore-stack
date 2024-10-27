@@ -2,9 +2,9 @@ import fs from "node:fs";
 import path from "node:path";
 
 const filesToCheck = [
-  "app/ui/atoms/handlers.ts",
-  "app/ui/molecules/handlers.ts",
-  "app/ui/organisms/handlers.ts",
+  "app/ui/atoms/index.ts",
+  "app/ui/molecules/index.ts",
+  "app/ui/organisms/index.ts",
 ];
 
 for (const filePath of filesToCheck) {
