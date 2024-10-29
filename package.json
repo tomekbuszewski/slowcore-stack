@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "remix vite:dev",
     "dev:mocks": "VITE_MOCKS=true remix vite:dev",
+    "lint:format": "prettier --write 'app/**/*.{ts,tsx}'; eslint --fix 'app/**/*.{ts,tsx}'",
     "typecheck": "tsc",
     "storybook": "storybook dev -p 6006",
     "test": "vitest",
@@ -15,7 +16,7 @@
     "start": "remix-serve ./build/server/index.js",
     "build-storybook": "storybook build",
     "postinstall": "node ./utils/verify-env.js",
-    "postplop": "biome format --write ./app"
+    "postplop": "pnpm exec lint:format"
   },
   "dependencies": {
     "@remix-run/node": "^2.13.1",
