@@ -32,7 +32,7 @@ npx create-remix@latest --template tomekbuszewski/slowcore-stack
 or
 
 ```bash
-pnpm create remix@latest --template karate-remix-template
+pnpm create remix@latest --template tomekbuszewski/slowcore-stack
 ```
 
 or whatever package manager is currently in fashion.
