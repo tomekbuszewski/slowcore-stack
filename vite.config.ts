@@ -1,14 +1,13 @@
 import type { UserConfig } from "vite";
 
+import { vitePlugin as remix } from "@remix-run/dev";
 import react from "@vitejs/plugin-react";
 import dotenv from "dotenv";
 import { remixDevTools } from "remix-development-tools";
 import { flatRoutes } from "remix-flat-routes";
 import { defineConfig } from "vite";
+import { configDefaults } from "vitest/config";
 
-import { vitePlugin as remix } from "@remix-run/dev";
-
-import { checkEnvVariables, generateEnvTypes } from "./utils/verify-env";
 import { plugins as basePlugins } from "./vite.base.config";
 
 declare module "@remix-run/node" {
@@ -73,6 +72,7 @@ export default defineConfig(({ mode, command }) => {
       globals: true,
       environment: "happy-dom",
       setupFiles: ["./config/test.setup.ts"],
+      exclude: [...configDefaults.exclude, "./app/e2e"],
     },
     plugins,
   };

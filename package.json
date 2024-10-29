@@ -10,7 +10,7 @@
     "typecheck": "tsc",
     "storybook": "storybook dev -p 6006",
     "test": "vitest",
-    "test:e2e": "pnpm exec playwright test",
+    "test:e2e": "VITE_MOCKS=true pnpm exec playwright test",
     "plop": "plop",
     "build": "remix vite:build",
     "start": "remix-serve ./build/server/index.js",
