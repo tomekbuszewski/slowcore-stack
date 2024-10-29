@@ -73,4 +73,34 @@ export default function plop(/** @type {import("plop").NodePlopAPI} */ plop) {
       },
     ],
   });
+
+  plop.setGenerator("hook", {
+    description: "Create a new hook",
+    prompts: [
+      {
+        type: "input",
+        name: "name",
+        message: "Hook name",
+      },
+    ],
+
+    actions: [
+      {
+        type: "add",
+        path: "./app/hooks/{camelCase name}}/{{camelCase name}}.ts",
+        template: "export default function {{pascalCase name}}() {}",
+      },
+      {
+        type: "add",
+        path: "./app/hooks/{{camelCase name}}/{camelCase name}}.test.tsx",
+        templateFile: "./plop-templates/Hook.test.tsx.hbs",
+      },
+      {
+        type: "append",
+        path: "./app/hooks/index.ts",
+        template:
+          'export { default as {{camelCase name}} } from "./{{camelCase name}}/{{camelCase name}}.ts";\n',
+      },
+    ],
+  });
 }
