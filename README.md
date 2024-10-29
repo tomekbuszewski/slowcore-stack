@@ -39,7 +39,8 @@ or whatever package manager is currently in fashion.
 
 ### The gist
 
-- Formatting with [Biome](https://biomejs.dev/);
+- Formatting with [Prettier](https://prettier.io/);
+- Linting with [ESLint](https://eslint.org/);
 - Type safety with [TypeScript](https://www.typescriptlang.org/);
 - Styling with [Tailwind CSS](https://tailwindcss.com/);
 - Tests with [Vitest](https://vitest.dev/) and [Testing Library](https://testing-library.com/docs/react-testing-library/intro);
