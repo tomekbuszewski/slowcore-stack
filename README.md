@@ -122,7 +122,14 @@ checking my blogposts and/or YouTube videos:
 
 ### Hooks generator
 
-**Coming soon*
+Hooks are generated using Plop. Name it "use [my hook name]", it will convert 
+to camelCase (useMyHookName) and will be placed in the hooks folder.
+
+The generator will also add a test, but it's up to you to fill it with the
+actual cases.
+
+Hooks are exported from `@hooks` path, linking to `./app/hooks/index.ts` 
+folder.
 
 ### Feature-based architecture
 
