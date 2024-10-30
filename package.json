@@ -16,7 +16,7 @@
     "start": "remix-serve ./build/server/index.js",
     "build-storybook": "storybook build",
     "postinstall": "node ./utils/verify-env.js",
-    "postplop": "pnpm exec lint:format"
+    "postplop": "pnpm run lint:format"
   },
   "dependencies": {
     "@remix-run/node": "^2.13.1",
