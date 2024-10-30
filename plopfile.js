@@ -87,12 +87,12 @@ export default function plop(/** @type {import("plop").NodePlopAPI} */ plop) {
     actions: [
       {
         type: "add",
-        path: "./app/hooks/{camelCase name}}/{{camelCase name}}.ts",
-        template: "export default function {{pascalCase name}}() {}",
+        path: "./app/hooks/{{camelCase name}}/{{camelCase name}}.ts",
+        template: "export default function {{camelCase name}}() {}",
       },
       {
         type: "add",
-        path: "./app/hooks/{{camelCase name}}/{camelCase name}}.test.tsx",
+        path: "./app/hooks/{{camelCase name}}/{{camelCase name}}.test.tsx",
         templateFile: "./plop-templates/Hook.test.tsx.hbs",
       },
       {
