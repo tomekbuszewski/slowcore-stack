@@ -1,9 +1,8 @@
-import { Form, useNavigation } from "@remix-run/react";
-import { Fragment, useEffect, useRef } from "react";
-
-import { Input } from "@ui/atoms";
-
 import type { Post, Props } from "./PostList.types";
+
+import { Fragment, useEffect, useRef } from "react";
+import { Form, useNavigation } from "@remix-run/react";
+import { Input } from "@ui/atoms";
 
 export function PostList({ actionData, posts = [] }: Props) {
   const transition = useNavigation();

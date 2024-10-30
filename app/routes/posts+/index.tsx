@@ -1,10 +1,9 @@
+import { PostList } from "@features";
 import {
   type ActionFunctionArgs,
-  type MetaFunction,
   json,
+  type MetaFunction,
 } from "@remix-run/node";
-
-import { PostList } from "@features";
 import { useActionData, useLoaderData } from "@remix-run/react";
 
 export async function loader() {

@@ -17,12 +17,12 @@ async function enableMocking() {
   return browserWorker.start();
 }
 
-import { RemixBrowser } from "@remix-run/react";
-import { StrictMode, startTransition } from "react";
+import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
+import { RemixBrowser } from "@remix-run/react";
 
 if (getEnv("VITE_MOCKS") === "true") {
-  enableMocking();
+  enableMocking().catch(() => console.log("cannot enable mocking"));
 }
 
 startTransition(() => {

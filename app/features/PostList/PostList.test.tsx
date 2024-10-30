@@ -1,7 +1,7 @@
+import mockData from "@mocks/items";
 import { createRemixStub } from "@remix-run/testing";
 import { render } from "@testing-library/react";
 
-import mockData from "@mocks/items";
 import { PostList } from "./PostList";
 
 const Stub = createRemixStub([

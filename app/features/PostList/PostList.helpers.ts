@@ -1,8 +1,7 @@
-import { json } from "@remix-run/node";
+import type { PostPayload } from "./PostList.types";
 
 import { getEnv } from "@env";
-
-import type { PostPayload } from "./PostList.types";
+import { json } from "@remix-run/node";
 
 export async function createPost(payload: PostPayload) {
   const post = await fetch(`${getEnv("VITE_API_URL")}/objects`, {
@@ -10,6 +9,6 @@ export async function createPost(payload: PostPayload) {
     body: JSON.stringify({ ...payload }),
   });
 
-  const result = await post.json();
+  const result = (await post.json()) as Promise<PostPayload>;
   return json({ result });
 }
