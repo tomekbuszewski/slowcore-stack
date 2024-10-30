@@ -35,7 +35,7 @@ export default function plop(/** @type {import("plop").NodePlopAPI} */ plop) {
       },
       {
         type: "append",
-        path: "./app/ui/{{type}}s/handlers.ts",
+        path: "./app/ui/{{type}}s/index.ts",
         template:
           'export { default as {{pascalCase name}} } from "./{{pascalCase name}}/{{pascalCase name}}";',
       },
@@ -61,13 +61,13 @@ export default function plop(/** @type {import("plop").NodePlopAPI} */ plop) {
       },
       {
         type: "add",
-        path: "./app/features/{{pascalCase name}}/handlers.ts",
+        path: "./app/features/{{pascalCase name}}/index.ts",
         template:
-          'export { {{pascalCase name}} } from "./{{pascalCase name}}";',
+          'export { default as {{pascalCase name}} } from "./{{pascalCase name}}";',
       },
       {
         type: "append",
-        path: "./app/features/handlers.ts",
+        path: "./app/features/index.ts",
         template:
           'import * as {{pascalCase name}}Feature from "./{{pascalCase name}}";',
       },
