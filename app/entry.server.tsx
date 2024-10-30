@@ -6,13 +6,13 @@
 
 import type { EntryContext } from "@remix-run/node";
 
-import { PassThrough } from "node:stream";
+import { renderToPipeableStream } from "react-dom/server";
 import { getEnv } from "@env";
 import { nodeServer } from "@mocks/server";
 import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
-import { renderToPipeableStream } from "react-dom/server";
+import { PassThrough } from "node:stream";
 
 if (getEnv("VITE_MOCKS")) {
   nodeServer.listen();
@@ -79,7 +79,11 @@ function handleAllRequests(
           pipe(body);
         },
         onShellError(error: unknown) {
-          reject(error);
+          if (error instanceof Error) {
+            reject(error);
+          }
+
+          reject(new Error("An unknown error occurred"));
         },
         onError(error: unknown) {
           responseCode = 500;

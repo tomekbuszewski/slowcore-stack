@@ -1,7 +1,7 @@
 import type { ActionFunctionArgs } from "@remix-run/node";
+import type { FormActionResponse, PostPayload } from "./PostList.types";
 
 import { createPost } from "./PostList.helpers";
-import type { FormActionResponse, PostPayload } from "./PostList.types";
 
 export async function action({
   request,
