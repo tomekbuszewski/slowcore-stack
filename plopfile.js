@@ -99,7 +99,7 @@ export default function plop(/** @type {import("plop").NodePlopAPI} */ plop) {
         type: "append",
         path: "./app/hooks/index.ts",
         template:
-          'export { default as {{camelCase name}} } from "./{{camelCase name}}/{{camelCase name}}.ts";\n',
+          'export { default as {{camelCase name}} } from "./{{camelCase name}}/{{camelCase name}}";\n',
       },
     ],
   });
