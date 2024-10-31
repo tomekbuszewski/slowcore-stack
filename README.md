@@ -55,10 +55,8 @@ please read on 👇.
 
 ### Linting and formatting
 
-I've dropped ESLint and Prettier in favor of Biome. It's a simple tool that
-combines both of them. It's a bit less configurable, especially if you want
-to have extensive linting, but I found out that most of the ESLint rules aren't
-really applicable to my cases, and Biome comes with a great set of defaults.
+I am using Prettier for formatting and ESLint for linting. There isn't much
+uncommon rules, mostly detects empty functions and interfaces and sorts imports.
 
 ### Styling with Tailwind CSS
 
