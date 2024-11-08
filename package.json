@@ -10,13 +10,13 @@
     "typecheck": "tsc",
     "storybook": "storybook dev -p 6006",
     "test": "vitest",
-    "test:e2e": "VITE_MOCKS=true pnpm exec playwright test",
+    "test:e2e": "VITE_MOCKS=true {{pm}} playwright test",
     "plop": "plop",
     "build": "remix vite:build",
     "start": "remix-serve ./build/server/index.js",
     "build-storybook": "storybook build",
     "postinstall": "node ./utils/verify-env.js",
-    "postplop": "pnpm run lint:format"
+    "postplop": "{{pm}} lint:format"
   },
   "dependencies": {
     "@remix-run/node": "^2.13.1",
