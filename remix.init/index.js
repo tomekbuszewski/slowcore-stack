@@ -35,7 +35,7 @@ function getPackageManagerCommand(packageManager) {
       const useExec = semver.gte(pnpmVersion, "6.13.0");
 
       return {
-        exec: useExec ? "pnpm exec" : "pnpx",
+        exec: useExec ? "pnpm exec" : "pnpm run",
         lockfile: "pnpm-lock.yaml",
         name: "pnpm",
         run: (script, args) =>
@@ -68,6 +68,19 @@ function removeUnusedDependencies(dependencies, unusedDependencies) {
   );
 }
 
+function updateScriptsWithPM(scripts, packageManager) {
+  const pm = getPackageManagerCommand(packageManager);
+  const isFn = typeof pm.exec === "function";
+
+  return Object.fromEntries(
+    Object.entries(scripts).map(([key, value]) => [
+      key,
+      value
+        .replaceAll("{{pm}}", isFn ? pm.exec() : pm.exec)
+    ]),
+  );
+}
+
 function updatePackageJson({ APP_NAME, packageJson, packageManager }) {
   const { devDependencies, scripts } = packageJson.content;
 
@@ -77,7 +90,7 @@ function updatePackageJson({ APP_NAME, packageJson, packageManager }) {
       packageManager.name === "bun"
         ? removeUnusedDependencies(devDependencies, ["tsx"])
         : devDependencies,
-    scripts,
+    scripts: updateScriptsWithPM(scripts, packageManager.name),
   });
 }
 

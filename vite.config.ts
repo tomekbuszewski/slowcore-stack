@@ -41,6 +41,7 @@ export default defineConfig(({ mode, command }) => {
             typesGenerated = true;
           } catch (error) {
             console.error("Error checking environment variables", error);
+            process.exit(1);
           }
         }
       },
@@ -64,6 +65,7 @@ export default defineConfig(({ mode, command }) => {
   }
 
   return {
+    suppressDeprecationWarning: true, // Suppress Remix Devtools warning
     envPrefix: "VITE_",
     define: {
       "process.env": process.env,
