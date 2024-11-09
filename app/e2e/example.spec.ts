@@ -30,19 +30,19 @@ test.describe("Main page", () => {
   });
 });
 
-test.describe("Posts page", () => {
+test.describe("Jokes page", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/posts");
+    await page.goto("/jokes");
   });
 
   test("has title", async ({ page }) => {
-    await expect(page).toHaveTitle(/Available items/);
+    await expect(page).toHaveTitle(/Available jokes/);
   });
 
-  test("has posts", async ({ page }) => {
+  test("has items", async ({ page }) => {
     const listItems = page.locator("ul li");
 
-    // API has 13 items, mocks has 6, if this works this means mocking server is working
+    // API has 10 items, mocks has 9, if this works this means mocking server is working
     expect(await listItems.count()).toBe(items.length);
   });
 });

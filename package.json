@@ -1,27 +1,33 @@
 {
-  "name": "slowcore-remix-stack",
+  "name": "slowcore-app",
   "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Tomasz Buszewski",
+    "email": "tomasz@buszewski.com"
+  },
   "sideEffects": false,
   "type": "module",
   "scripts": {
+    "build": "remix vite:build",
+    "build-storybook": "storybook build",
     "dev": "remix vite:dev",
     "dev:mocks": "VITE_MOCKS=true remix vite:dev",
+    "postinstall": "node ./utils/verify-env.js",
     "lint:format": "prettier --write 'app/**/*.{ts,tsx}'; eslint --fix 'app/**/*.{ts,tsx}'",
-    "typecheck": "tsc",
+    "plop": "plop",
+    "postplop": "pnpm exec lint:format",
+    "start": "remix-serve ./build/server/index.js",
     "storybook": "storybook dev -p 6006",
     "test": "vitest",
-    "test:e2e": "VITE_MOCKS=true {{pm}} playwright test",
-    "plop": "plop",
-    "build": "remix vite:build",
-    "start": "remix-serve ./build/server/index.js",
-    "build-storybook": "storybook build",
-    "postinstall": "node ./utils/verify-env.js",
-    "postplop": "{{pm}} lint:format"
+    "test:e2e": "VITE_MOCKS=true pnpm exec playwright test",
+    "test:e2e:serve": "VITE_MOCKS=\"true\" pnpm run build && VITE_MOCKS=\"true\" pnpm run start",
+    "typecheck": "tsc"
   },
   "dependencies": {
-    "@remix-run/node": "^2.13.1",
-    "@remix-run/react": "^2.13.1",
-    "@remix-run/serve": "^2.13.1",
+    "@remix-run/node": "^2.14.0",
+    "@remix-run/react": "^2.14.0",
+    "@remix-run/serve": "^2.14.0",
     "clsx": "^2.1.1",
     "isbot": "^5.0.0",
     "react": "^18.2.0",
@@ -30,8 +36,8 @@
   "devDependencies": {
     "@eslint/js": "^9.11.1",
     "@playwright/test": "^1.48.1",
-    "@remix-run/dev": "^2.13.1",
-    "@remix-run/testing": "^2.13.1",
+    "@remix-run/dev": "^2.14.0",
+    "@remix-run/testing": "^2.14.0",
     "@storybook/addon-essentials": "^8.3.5",
     "@storybook/addon-interactions": "^8.3.5",
     "@storybook/addon-links": "^8.3.5",
@@ -60,7 +66,7 @@
     "eslint-plugin-storybook": "^0.11.0",
     "globals": "^15.11.0",
     "happy-dom": "^15.7.4",
-    "msw": "^2.5.2",
+    "msw": "^2.6.4",
     "plop": "^4.0.1",
     "postcss": "^8.4.38",
     "prettier": "^3.3.3",
@@ -77,15 +83,10 @@
     "vite-tsconfig-paths": "^5.0.0",
     "vitest": "^2.1.2"
   },
+  "packageManager": "pnpm@9.12.3",
   "engines": {
     "node": ">=20.0.0"
   },
-  "packageManager": "pnpm@9.12.3",
-  "author": {
-    "name": "Tomasz Buszewski",
-    "email": "tomasz@buszewski.com"
-  },
-  "license": "MIT",
   "msw": {
     "workerDirectory": [
       "public"

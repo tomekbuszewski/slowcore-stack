@@ -1,42 +1,41 @@
-import { PostList } from "@features";
+import { Jokes } from "@features";
 import {
   type ActionFunctionArgs,
-  json,
   type MetaFunction,
 } from "@remix-run/node";
 import { useActionData, useLoaderData } from "@remix-run/react";
 
 export async function loader() {
-  return json({ postList: await PostList.loader() });
+  return { jokes: await Jokes.loader() };
 }
 
 export async function action(args: ActionFunctionArgs) {
-  return json({
-    postList: await PostList.action(args),
-  });
+  return {
+    jokes: await Jokes.action(args),
+  }
 }
 
 export const meta: MetaFunction = () => {
   return [
     {
-      title: "Available items",
+      title: "Available jokes",
     },
   ];
 };
 
 export default function Index() {
-  const postListActionData = useActionData<typeof action>();
-  const postListLoaderData = useLoaderData<typeof loader>();
+  const jokesActionData = useActionData<typeof action>();
+  const jokesLoaderData = useLoaderData<typeof loader>();
 
   return (
     <div>
       <h2 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-        Available items
+        Available jokes
       </h2>
 
-      <PostList.component
-        actionData={postListActionData?.postList}
-        posts={postListLoaderData.postList}
+      <Jokes.component
+        actionData={jokesActionData?.jokes}
+        jokes={jokesLoaderData?.jokes}
       />
     </div>
   );

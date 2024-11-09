@@ -52,10 +52,12 @@ export default defineConfig(({ mode, command }) => {
     plugins.push(react());
   } else {
     plugins.push(
-      remixDevTools(),
+      remixDevTools({ suppressDeprecationWarning: true }),
       remix({
         routes: (defineRoutes) => flatRoutes("routes", defineRoutes),
         future: {
+          v3_singleFetch: true,
+          v3_lazyRouteDiscovery: true,
           v3_fetcherPersist: true,
           v3_relativeSplatPath: true,
           v3_throwAbortReason: true,
@@ -65,7 +67,6 @@ export default defineConfig(({ mode, command }) => {
   }
 
   return {
-    suppressDeprecationWarning: true, // Suppress Remix Devtools warning
     envPrefix: "VITE_",
     define: {
       "process.env": process.env,

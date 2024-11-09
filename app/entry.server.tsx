@@ -8,14 +8,20 @@ import type { EntryContext } from "@remix-run/node";
 
 import { renderToPipeableStream } from "react-dom/server";
 import { getEnv } from "@env";
-import { nodeServer } from "@mocks/server";
+import { server } from "@mocks/server";
 import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { PassThrough } from "node:stream";
 
-if (getEnv("VITE_MOCKS")) {
-  nodeServer.listen();
+if (getEnv("VITE_MOCKS") === "true") {
+  server.listen({
+    onUnhandledRequest: (request) => {
+      if (request.url.includes("remix-development"))  {
+        return "bypass";
+      }
+    }
+  });
 }
 
 const ABORT_DELAY = 5_000;

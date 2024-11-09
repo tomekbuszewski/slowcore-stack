@@ -72,7 +72,7 @@ export default function Index() {
           <ul>
             <li>
               <Link
-                to="/posts"
+                to="/jokes"
                 className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
               >
                 See a feature with server communication
