@@ -1,7 +1,7 @@
-import * as PostListFeature from "./PostList";
+import * as JokesFeature from "./Jokes";
 
-export const PostList = {
-  action: PostListFeature.action,
-  loader: PostListFeature.loader,
-  component: PostListFeature.PostList,
+export const Jokes = {
+  action: JokesFeature.action,
+  loader: JokesFeature.loader,
+  component: JokesFeature.Jokes,
 };

@@ -15,7 +15,7 @@ dotenv.config();
  * See https://playwright.dev/docs/test-configuration.
  */
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "http://localhost:5173";
 const desktopConfig = {
   viewport: { width: 1400, height: 1000 },
 };
@@ -74,7 +74,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: "VITE_MOCKS=true pnpm run build && VITE_MOCKS=true pnpm run start",
+    command: "pnpm run dev:mocks",
     url: BASE_URL,
     reuseExistingServer: !process.env.CI,
   },
