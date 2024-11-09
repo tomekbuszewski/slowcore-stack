@@ -1,3 +1,3 @@
-import objects from "./api/objects";
+import random from "./api/random";
 
-export const handlers = [...objects];
+export const handlers = [...random];

@@ -1,26 +1,28 @@
-import type { Post, Props } from "./PostList.types";
+import type { Joke, Props } from "./Jokes.types";
 
 import { Fragment, useEffect, useRef } from "react";
 import { Form, useNavigation } from "@remix-run/react";
 import { Input } from "@ui/atoms";
 
-export function PostList({ actionData, posts = [] }: Props) {
+import JokeItem from "./components/Joke";
+
+export function Jokes({ actionData, jokes = [] }: Props) {
   const transition = useNavigation();
 
   const formRef = useRef<HTMLFormElement>(null);
-  const initialPostLength = useRef(posts.length);
+  const initialPostLength = useRef(jokes.length);
 
   const hasErrors =
     actionData?.errors && Object.keys(actionData?.errors).length > 0;
-  const hasPosts = posts.length > 0;
+  const hasPosts = jokes.length > 0;
   const isSubmitting = transition.state === "submitting";
 
   useEffect(() => {
-    if (initialPostLength.current !== posts.length) {
-      initialPostLength.current = posts.length;
+    if (initialPostLength.current !== jokes.length) {
+      initialPostLength.current = jokes.length;
       formRef?.current?.reset();
     }
-  }, [posts]);
+  }, [jokes]);
 
   return (
     <div>
@@ -34,13 +36,11 @@ export function PostList({ actionData, posts = [] }: Props) {
       {hasPosts ? (
         <Fragment>
           <ul className="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
-            {posts.map((post: Post) => (
-              <li id={String(post.id)} key={post.id}>
-                {post.name}
-              </li>
+            {jokes.map((post: Joke) => (
+              <JokeItem key={post.id} {...post} />
             ))}
 
-            {actionData?.post ? <li>{actionData?.post.name}</li> : null}
+            {actionData?.joke ? <JokeItem {...actionData?.joke} /> : null}
           </ul>
 
           <hr className="my-10" />
@@ -73,18 +73,36 @@ export function PostList({ actionData, posts = [] }: Props) {
             </div>
           )}
 
-          <div className="my-5">
+          <div className="mt-5 mb-1">
             <label
-              htmlFor="name"
+              htmlFor="setup"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
-              Device name
+              Setup
             </label>
             <Input
-              name="name"
+              name="setup"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
-            {actionData?.errors?.name ? (
+            {actionData?.errors?.setup ? (
+              <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                Please fill that field.
+              </p>
+            ) : null}
+          </div>
+
+          <div className="my-5">
+            <label
+              htmlFor="punchline"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Punchline
+            </label>
+            <Input
+              name="punchline"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
+            {actionData?.errors?.punchline ? (
               <p className="mt-2 text-sm text-red-600 dark:text-red-500">
                 Please fill that field.
               </p>
