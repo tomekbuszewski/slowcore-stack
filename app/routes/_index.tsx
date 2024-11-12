@@ -79,7 +79,12 @@ export default function Index() {
               </Link>
             </li>
             <li>
-              <hr />
+              <Link
+                to="/page-with-error"
+                className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
+              >
+                See a subpage that randomly thrown an error
+              </Link>
             </li>
           </ul>
         </nav>
