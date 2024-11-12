@@ -125,7 +125,7 @@ importers:
         version: 15.12.0
       happy-dom:
         specifier: ^15.7.4
-        version: 15.11.2
+        version: 15.11.3
       msw:
         specifier: ^2.6.4
         version: 2.6.4(@types/node@22.9.0)(typescript@5.6.3)
@@ -173,7 +173,7 @@ importers:
         version: 5.1.1(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.0))
       vitest:
         specifier: ^2.1.2
-        version: 2.1.4(@types/node@22.9.0)(happy-dom@15.11.2)(msw@2.6.4(@types/node@22.9.0)(typescript@5.6.3))
+        version: 2.1.4(@types/node@22.9.0)(happy-dom@15.11.3)(msw@2.6.4(@types/node@22.9.0)(typescript@5.6.3))
 
 packages:
 
@@ -3377,8 +3377,8 @@ packages:
     engines: {node: '>=0.4.7'}
     hasBin: true
 
-  happy-dom@15.11.2:
-    resolution: {integrity: sha512-MZ8kazOz+8i9G+olnJS836mNaF96UhOTzuECmxdE56+1+juiubqaJHTJUf+1WZ6Vs09lKLdmfX2AxGslfj1XFg==}
+  happy-dom@15.11.3:
+    resolution: {integrity: sha512-MZFy3YpoX4jnQbgrTWv35gpKxvw8y9FRSOIO6CIYmpZjxbkobaB0sAW+EXCxwTZcMvvmrjD59/NYvyld6nABfw==}
     engines: {node: '>=18.0.0'}
 
   has-bigints@1.0.2:
@@ -9431,7 +9431,7 @@ snapshots:
     optionalDependencies:
       uglify-js: 3.19.3
 
-  happy-dom@15.11.2:
+  happy-dom@15.11.3:
     dependencies:
       entities: 4.5.0
       webidl-conversions: 7.0.0
@@ -11981,7 +11981,7 @@ snapshots:
       '@types/node': 22.9.0
       fsevents: 2.3.3
 
-  vitest@2.1.4(@types/node@22.9.0)(happy-dom@15.11.2)(msw@2.6.4(@types/node@22.9.0)(typescript@5.6.3)):
+  vitest@2.1.4(@types/node@22.9.0)(happy-dom@15.11.3)(msw@2.6.4(@types/node@22.9.0)(typescript@5.6.3)):
     dependencies:
       '@vitest/expect': 2.1.4
       '@vitest/mocker': 2.1.4(msw@2.6.4(@types/node@22.9.0)(typescript@5.6.3))(vite@5.4.11(@types/node@22.9.0))
@@ -12005,7 +12005,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.9.0
-      happy-dom: 15.11.2
+      happy-dom: 15.11.3
     transitivePeerDependencies:
       - less
       - lightningcss
