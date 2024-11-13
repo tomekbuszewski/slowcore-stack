@@ -1,6 +1,7 @@
-import "@testing-library/jest-dom";
-import { nodeServer } from "@mocks/server";
+import { server } from "@mocks/server";
 
-beforeAll(() => nodeServer.listen());
-afterEach(() => nodeServer.resetHandlers());
-afterAll(() => nodeServer.close());
+import "@testing-library/jest-dom";
+
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
